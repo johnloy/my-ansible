@@ -1,0 +1,3 @@
+- name: symlink ansible roles
+  file: src={{ item }} dest={{ ansible_env.HOME }}/ansible-roles/{{ item | basename }}  state=link
+  with_lines: cd {{ github_user_src_dir }} && find `pwd` -type d -path '*my-*\/.ansible\/roles\/*' -maxdepth 4
