@@ -1,6 +1,6 @@
 - name: Symlink ansible roles
   # file: src={{ item }} dest={{ ansible_env.HOME }}/ansible-roles/{{ item | basename }}  state=link
-  command: ln -s {{ item }} {{ item | basename }}
+  command: ln -sf {{ item }} {{ item | basename }}
   args:
     chdir: ~/ansible/items/roles
   with_lines: cd ~/ansible/items/roles && find -L ../../../my-env/items -maxdepth 5 -type d -path '*/config\/ansible\/roles\/*'
