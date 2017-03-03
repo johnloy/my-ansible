@@ -1,5 +1,4 @@
 - name: Symlink ansible roles
-  # file: src={{ item }} dest={{ ansible_env.HOME }}/ansible-roles/{{ item | basename }}  state=link
   command: ln -sf {{ item }} {{ item | basename }}
   args:
     chdir: ~/ansible/items/roles
